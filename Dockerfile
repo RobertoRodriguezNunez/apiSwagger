@@ -5,10 +5,10 @@ WORKDIR /usr/src/app
 COPY package.json .
 # install all dependencies
 RUN npm install
-# copy oter files as well
+# copy other files as well
 COPY ./src/ ./src/
 #expose the port
-EXPOSE 4000
+EXPOSE 8080
 # run the app
 # command to run when intantiate an image
 CMD ["npm","start"]
