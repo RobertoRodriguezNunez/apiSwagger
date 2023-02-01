@@ -171,7 +171,7 @@ const swaggerSpec =
                     }
                 }
             },
-            "/api/hombres/{id}{name}": {
+            "/api/hombres/{id}/{name}": {
                 put: {
                     summary: "Actualizar un hombre de la API",
                     tags: [
@@ -366,7 +366,7 @@ const swaggerSpec =
                     }
                 }
             },
-            "/api/mujeres/{id}{name}": {
+            "/api/mujeres/{id}/{name}": {
                 put: {
                     summary: "Actualizar una mujer de la API",
                     tags: [
