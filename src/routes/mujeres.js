@@ -52,9 +52,9 @@ mujeres.set("48", "Catalina Domínguez");
 mujeres.set("49", "María de la Paz Vázquez");
 mujeres.set("50", "Agueda Ruiz");
 
+let id=50;
 
 router.get('/:id', function(req, res) {
-
   res.json({ message: mujeres.get(req.params.id) })
 })
 
@@ -64,16 +64,19 @@ router.get('/', function(req, res) {
     res.json(array)
 })
 
-router.post('/', function(req, res) {
-  res.json({ message: 'Vas a añadir una mujer' })
-})
+router.post('/:name', function(req, res) {
+  id++;
+  mujeres.set(id.toString(), req.params.name);
+  res.json({ message: 'Se ha añadido una nueva mujer con el nombre: '+req.params.name });
+});
 
 router.put('/:id', function(req, res) {
   res.json({ message: 'Vas a actualizar la mujer con id ' + req.params.id })
 })
 
 router.delete('/:id', function(req, res) {
-  res.json({ message: 'Vas a borrar la mujer con id ' + req.params.id})
+  mujeres.delete(req.params.id);
+  res.json({ message: 'Se eliminó la mujer con id ' + req.params.id})
 })
 
 

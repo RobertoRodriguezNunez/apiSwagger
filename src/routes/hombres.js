@@ -69,17 +69,20 @@ router.get('/', function(req, res) {
     res.json(array)
 })
 
-router.post('/', function(req, res) {
-  hombres.set(++contador.toString(), req.body.nombre);
-  res.json({ message: 'Se ha añadido un nuevo hombre' });
+router.post('/:name', function(req, res) {
+  id++;
+  hombres.set(id.toString(), req.params.name);
+  res.json({ message: 'Se ha añadido un nuevo hombre con el nombre: '+req.params.name });
 });
 
-router.put('/:id', function(req, res) {
-  res.json({ message: 'Vas a actualizar el hombre con id ' + req.params.id })
+router.put('/:id:name', function(req, res) {
+  hombres.set(req.params.id, req.params.name);
+  res.json({ message: 'Se actualizó el hombre con id ' + req.params.id + ' a ' + req.params.name})
 })
 
 router.delete('/:id', function(req, res) {
-  res.json({ message: 'Vas a borrar el hombre con id ' + req.params.id})
+  hombres.delete(req.params.id);
+  res.json({ message: 'Se eliminó la mujer con id ' + req.params.id})
 })
 
 

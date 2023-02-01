@@ -77,7 +77,7 @@ const swaggerSpec =
                     ],
                     responses: {
                         200: {
-                            description: "Un hombre.",
+                            description: "Se ha recogido un hombre.",
                             content: {
                                 "application/json": {
                                     schema: {
@@ -113,7 +113,7 @@ const swaggerSpec =
                     ],
                     responses: {
                         200: {
-                            description: "Un hombre.",
+                            description: "Se ha eliminado un hombre.",
                             content: {
                                 "application/json": {
                                     schema: {
@@ -131,21 +131,15 @@ const swaggerSpec =
                             }
                         }
                     }
-                },
+                }
+            },
+            "/api/hombres/{name}": {
                 post: {
-                    summary: "Añade un hombre a la API",
+                    summary: "Añade un hombre a la API con id dinámico",
                     tags: [
                         "Hombres"
                     ],
                     parameters: [
-                        {
-                            name: "id",
-                            in: "path",
-                            description: "ID del hombre a añadir",
-                            required: true,
-                            type: "integer",
-                            format: "int64"
-                        },
                         {
                             name: "name",
                             in: "path",
@@ -168,14 +162,16 @@ const swaggerSpec =
                                             }
                                         },
                                         example: {
-                                            "message": "Hombre añadido"
+                                            "message": "Se ha añadido un nuevo hombre."
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                },
+                }
+            },
+            "/api/hombres/{id}{name}": {
                 put: {
                     summary: "Actualizar un hombre de la API",
                     tags: [
@@ -189,11 +185,19 @@ const swaggerSpec =
                             required: true,
                             type: "integer",
                             format: "int64"
+                        },
+                        {
+                            name: "name",
+                            in: "path",
+                            description: "Nombre del hombre a actualizar",
+                            required: true,
+                            type: "string",
+                            format: "string"
                         }
                     ],
                     responses: {
                         200: {
-                            description: "Un hombre.",
+                            description: "Se ha actualizado un hombre.",
                             content: {
                                 "application/json": {
                                     schema: {
@@ -268,7 +272,7 @@ const swaggerSpec =
                     ],
                     responses: {
                         200: {
-                            description: "Una mujer.",
+                            description: "Se ha obtenido una mujer por el ID.",
                             content: {
                                 "application/json": {
                                     schema: {
@@ -304,7 +308,7 @@ const swaggerSpec =
                     ],
                     responses: {
                         200: {
-                            description: "Una mujer.",
+                            description: "Se ha borrado una mujer de la API.",
                             content: {
                                 "application/json": {
                                     schema: {
@@ -322,21 +326,15 @@ const swaggerSpec =
                             }
                         }
                     }
-                },
+                }
+            },
+            "/api/mujeres/{name}": {
                 post: {
-                    summary: "Añade una mujer de la API",
+                    summary: "Añade una mujer a la API con id dinámico",
                     tags: [
                         "Mujeres"
                     ],
                     parameters: [
-                        {
-                            name: "id",
-                            in: "path",
-                            description: "ID de la mujer a añadir",
-                            required: true,
-                            type: "integer",
-                            format: "int64"
-                        },
                         {
                             name: "name",
                             in: "path",
@@ -348,7 +346,7 @@ const swaggerSpec =
                     ],
                     responses: {
                         200: {
-                            description: "Una mujer.",
+                            description: "Se ha añadido una nueva mujer",
                             content: {
                                 "application/json": {
                                     schema: {
@@ -359,14 +357,16 @@ const swaggerSpec =
                                             }
                                         },
                                         example: {
-                                            "message": "Mujer añadida"
+                                            "message": "Mujer añadida."
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                },
+                }
+            },
+            "/api/mujeres/{id}{name}": {
                 put: {
                     summary: "Actualizar una mujer de la API",
                     tags: [
@@ -380,11 +380,19 @@ const swaggerSpec =
                             required: true,
                             type: "integer",
                             format: "int64"
+                        },
+                        {
+                            name: "name",
+                            in: "path",
+                            description: "Nombre de la mujer a actualizar",
+                            required: true,
+                            type: "string",
+                            format: "string"
                         }
                     ],
                     responses: {
                         200: {
-                            description: "Una mujer.",
+                            description: "Se ha actualizado una mujer.",
                             content: {
                                 "application/json": {
                                     schema: {
@@ -395,7 +403,7 @@ const swaggerSpec =
                                             }
                                         },
                                         example: {
-                                            "message": "Mujer actualizada"
+                                            "message": "Mujer actualizado"
                                         }
                                     }
                                 }
@@ -403,7 +411,7 @@ const swaggerSpec =
                         }
                     }
                 }
-            },
+            }
         },
     },
     apis: [path.join(__dirname, 'routes/*.js')]
