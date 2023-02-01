@@ -70,8 +70,10 @@ router.post('/:name', function(req, res) {
   res.json({ message: 'Se ha añadido una nueva mujer con el nombre: '+req.params.name });
 });
 
-router.put('/:id', function(req, res) {
-  res.json({ message: 'Vas a actualizar la mujer con id ' + req.params.id })
+router.put('/:id(\\d+[^/]*):name', function(req, res) {
+  let name = req.params.id.replace(/^\d+/, '') + req.params.name;
+  mujeres.set(req.params.id.match(/^(\d+)/)[0], name);
+  res.json({ message: 'Se actualizó la mujer con id ' + req.params.id.match(/^(\d+)/)[0] + ' a ' + name})
 })
 
 router.delete('/:id', function(req, res) {
