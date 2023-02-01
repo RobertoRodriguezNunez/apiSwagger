@@ -52,6 +52,7 @@ hombres.set("48", "Aitor Fernández");
 hombres.set("49", "Álvaro García");
 hombres.set("50", "Francisco Gómez");
 
+let id=50;
 
 router.get('/:id', function(req, res) {
 var nombre = hombres.get(req.params.id);
@@ -69,8 +70,9 @@ router.get('/', function(req, res) {
 })
 
 router.post('/', function(req, res) {
-  res.json({ message: 'Vas a añadir un hombre' })
-})
+  hombres.set(++contador.toString(), req.body.nombre);
+  res.json({ message: 'Se ha añadido un nuevo hombre' });
+});
 
 router.put('/:id', function(req, res) {
   res.json({ message: 'Vas a actualizar el hombre con id ' + req.params.id })
