@@ -10,7 +10,7 @@ const swaggerSpec =
         info: {
             title: "API",
             version: "1.0",
-            description: "API de Roberto Rodríguez Núñez para documentarla con Swagger",
+            description: "API de Roberto Rodríguez Núñez para documentarla con Swagger. todos los métodos de la API funcionan de manera real.",
             contact: {
                 name: "Roberto Rodríguez Núñez",
                 email: "roberto.s252272@cesurformacion.com",
