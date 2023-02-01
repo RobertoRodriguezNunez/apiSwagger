@@ -83,7 +83,7 @@ router.put('/:id(\\d+[^/]*):name', function(req, res) {
 
 router.delete('/:id', function(req, res) {
   hombres.delete(req.params.id);
-  res.json({ message: 'Se eliminó la mujer con id ' + req.params.id})
+  res.json({ message: 'Se eliminó al hombre con id ' + req.params.id})
 })
 
 
