@@ -76,7 +76,7 @@ router.post('/:name', function(req, res) {
 });
 
 router.put('/:id(\\d+[^/]*):name', function(req, res) {
-  let name = req.params.id.replace(/^\d+/, '') + decodeURIComponent(req.params.name);
+  let name = req.params.id.replace(/^\d+/, '') + Buffer.from(req.params.name, 'base64').toString('utf8');
   hombres.set(req.params.id.match(/^(\d+)/)[0], name);
   res.json({ message: 'Se actualizó el hombre con id ' + req.params.id.match(/^(\d+)/)[0] + ' a ' + name})
 })
