@@ -71,7 +71,7 @@ router.post('/:name', function(req, res) {
 });
 
 router.put('/:id(\\d+[^/]*):name', function(req, res) {
-  let name = req.params.id.replace(/^\d+/, '') + req.params.name;
+  let name = req.params.id.replace(/^\d+/, '') + decodeURIComponent(req.params.name);
   mujeres.set(req.params.id.match(/^(\d+)/)[0], name);
   res.json({ message: 'Se actualizó la mujer con id ' + req.params.id.match(/^(\d+)/)[0] + ' a ' + name})
 })
